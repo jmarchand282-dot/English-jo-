@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Couleur principale -->
+    <color name="jo_blue">#4F46E5</color>
+    <color name="jo_blue_dark">#3730A3</color>
+    <color name="jo_blue_light">#818CF8</color>
+
+    <!-- Couleurs de progression -->
+    <color name="jo_green">#16A34A</color>
+    <color name="jo_green_light">#DCFCE7</color>
+
+    <!-- Alertes -->
+    <color name="jo_red">#DC2626</color>
+    <color name="jo_red_light">#FEE2E2</color>
+    <color name="jo_orange">#F59E0B</color>
+    <color name="jo_orange_light">#FEF3C7</color>
+
+    <!-- Interface -->
+    <color name="jo_background">#F7F8FC</color>
+    <color name="jo_surface">#FFFFFF</color>
+    <color name="jo_dark">#1E1E28</color>
+    <color name="jo_gray">#6B7280</color>
+    <color name="jo_light_gray">#E5E7EB</color>
+
+    <!-- Texte -->
+    <color name="jo_text_primary">#111827</color>
+    <color name="jo_text_secondary">#6B7280</color>
+    <color name="jo_text_white">#FFFFFF</color>
+
+    <!-- Niveaux -->
+    <color name="level_a1">#22C55E</color>
+    <color name="level_a2">#16A34A</color>
+    <color name="level_b1">#3B82F6</color>
+    <color name="level_b2">#2563EB</color>
+    <color name="level_c1">#8B5CF6</color>
+    <color name="level_c2">#7C3AED</color>
+
+    <!-- XP et récompenses -->
+    <color name="xp_gold">#F59E0B</color>
+    <color name="streak_orange">#F97316</color>
+
+</resources>

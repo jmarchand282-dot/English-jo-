@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Espacements -->
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">20dp</dimen>
+    <dimen name="space_xxl">24dp</dimen>
+    <dimen name="space_huge">32dp</dimen>
+
+    <!-- Coins arrondis -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">18dp</dimen>
+    <dimen name="radius_xl">24dp</dimen>
+
+    <!-- Boutons -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="button_radius">16dp</dimen>
+
+    <!-- Cartes -->
+    <dimen name="card_radius">18dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+
+    <!-- Textes -->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_subtitle">18sp</dimen>
+    <dimen name="text_title">24sp</dimen>
+    <dimen name="text_header">30sp</dimen>
+
+    <!-- Icônes -->
+    <dimen name="icon_small">20dp</dimen>
+    <dimen name="icon_medium">28dp</dimen>
+    <dimen name="icon_large">48dp</dimen>
+    <dimen name="icon_profile">72dp</dimen>
+
+</resources>

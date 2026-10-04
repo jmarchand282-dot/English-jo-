@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Police -->
+        <item name="android:fontFamily">sans</item>
+
+        <!-- Couleurs -->
+        <item name="colorPrimary">@color/jo_blue</item>
+        <item name="colorPrimaryVariant">@color/jo_blue_dark</item>
+        <item name="colorSecondary">@color/jo_green</item>
+        <item name="colorAccent">@color/jo_blue</item>
+
+        <!-- Arrière-plan -->
+        <item name="android:windowBackground">@color/jo_background</item>
+
+        <!-- Barre système -->
+        <item name="android:statusBarColor">@color/jo_blue</item>
+        <item name="android:navigationBarColor">@color/jo_background</item>
+
+        <!-- Icônes de la barre d'état -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Compatibilité -->
+        <item name="android:windowActionModeOverlay">true</item>
+
+    </style>
+
+</resources>

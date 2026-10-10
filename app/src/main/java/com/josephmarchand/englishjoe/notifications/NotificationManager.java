@@ -1,8 +1,8 @@
+
 package com.josephmarchand.englishjoe.notifications;
 
 import android.Manifest;
 import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +19,7 @@ import com.josephmarchand.englishjoe.R;
 public class NotificationManager {
 
     public static final String CHANNEL_ID = "english_joe_learning";
+    private static final int NOTIFICATION_ID = 1001;
 
     private final Context context;
 
@@ -29,18 +30,21 @@ public class NotificationManager {
 
     private void createChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
                     "English Joe",
                     android.app.NotificationManager.IMPORTANCE_DEFAULT
             );
 
-            channel.setDescription("Rappels et notifications d'apprentissage English Joe");
+            channel.setDescription(
+                    "Rappels et notifications d'apprentissage English Joe"
+            );
 
             android.app.NotificationManager manager =
                     (android.app.NotificationManager)
-                            context.getSystemService(Context.NOTIFICATION_SERVICE);
+                            context.getSystemService(
+                                    Context.NOTIFICATION_SERVICE
+                            );
 
             if (manager != null) {
                 manager.createNotificationChannel(channel);
@@ -49,14 +53,12 @@ public class NotificationManager {
     }
 
     public void showLearningReminder() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ActivityCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+                && ActivityCompat.checkSelfPermission(
+                        context,
+                        Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
 
         Intent intent = new Intent(context, MainActivity.class);
@@ -73,18 +75,20 @@ public class NotificationManager {
                 new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_english_joe)
                         .setContentTitle("English Joe")
-                        .setContentText("C'est le moment d'apprendre l'anglais !")
+                        .setContentText(
+                                "C'est le moment d'apprendre l'anglais !"
+                        )
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(
-                                        "Quelques minutes d'anglais aujourd'hui " +
-                                        "peuvent faire progresser ton niveau. " +
-                                        "Ouvre English Joe et continue ton parcours."
+                                        "Quelques minutes d'anglais aujourd'hui "
+                                        + "peuvent faire progresser ton niveau. "
+                                        + "Ouvre English Joe et continue ton parcours."
                                 ))
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setAutoCancel(true)
                         .setContentIntent(pendingIntent);
 
         NotificationManagerCompat.from(context)
-                .notify(1001, builder.build());
+                .notify(NOTIFICATION_ID, builder.build());
     }
-              }
+}

@@ -1,5 +1,7 @@
+
 package com.josephmarchand.englishjoe.courses;
 
+import com.josephmarchand.englishjoe.models.Course;
 import com.josephmarchand.englishjoe.models.Lesson;
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public final class CourseFilter {
 
         for (Course course : courses) {
             if (course != null
+                    && course.getLevel() != null
                     && level.equalsIgnoreCase(course.getLevel())) {
                 result.add(course);
             }
@@ -75,6 +78,7 @@ public final class CourseFilter {
 
         for (Lesson lesson : lessons) {
             if (lesson != null
+                    && lesson.getLevel() != null
                     && level.equalsIgnoreCase(lesson.getLevel())) {
                 result.add(lesson);
             }
@@ -87,4 +91,4 @@ public final class CourseFilter {
         return value != null
                 && value.toLowerCase(Locale.ROOT).contains(query);
     }
-}
+            }

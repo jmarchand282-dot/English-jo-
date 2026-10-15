@@ -1,6 +1,10 @@
+
 package com.josephmarchand.englishjoe.data;
 
 import android.content.Context;
+
+import com.josephmarchand.englishjoe.profile.ProfileStorage;
+import com.josephmarchand.englishjoe.notifications.NotificationSettings;
 
 public class AppSession {
 
@@ -13,11 +17,9 @@ public class AppSession {
     }
 
     public static synchronized AppSession getInstance(Context context) {
-
         if (instance == null) {
             instance = new AppSession(context);
         }
-
         return instance;
     }
 

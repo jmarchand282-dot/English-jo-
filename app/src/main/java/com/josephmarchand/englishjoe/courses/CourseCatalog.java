@@ -1,3 +1,4 @@
+
 package com.josephmarchand.englishjoe.courses;
 
 import com.josephmarchand.englishjoe.courses.A1.A1Course;
@@ -15,6 +16,16 @@ public final class CourseCatalog {
     public static List<Course> getCourses() {
         List<Course> courses = new ArrayList<>();
 
+        Course a1 = createA1Course();
+
+        if (a1 != null) {
+            courses.add(a1);
+        }
+
+        return courses;
+    }
+
+    public static Course createA1Course() {
         Course a1 = new Course(
                 "a1",
                 "English A1",
@@ -22,13 +33,17 @@ public final class CourseCatalog {
                 "A1"
         );
 
-        for (Lesson lesson : A1Course.getLessons()) {
-            a1.addLesson(lesson);
+        List<Lesson> lessons = A1Course.getLessons();
+
+        if (lessons != null) {
+            for (Lesson lesson : lessons) {
+                if (lesson != null) {
+                    a1.addLesson(lesson);
+                }
+            }
         }
 
-        courses.add(a1);
-
-        return courses;
+        return a1;
     }
 
     public static Course getCourse(String level) {

@@ -4,7 +4,6 @@ package com.josephmarchand.englishjoe.data;
 import android.content.Context;
 
 import com.josephmarchand.englishjoe.profile.ProfileStorage;
-import com.josephmarchand.englishjoe.notifications.NotificationSettings;
 
 public class AppSession {
 

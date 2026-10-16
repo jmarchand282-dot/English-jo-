@@ -1,7 +1,7 @@
-
 package com.josephmarchand.englishjoe.courses;
 
 import com.josephmarchand.englishjoe.courses.A1.A1Course;
+import com.josephmarchand.englishjoe.models.Course;
 import com.josephmarchand.englishjoe.models.Lesson;
 
 import java.util.ArrayList;
@@ -10,12 +10,10 @@ import java.util.List;
 public final class CourseCatalog {
 
     private CourseCatalog() {
-        // Classe utilitaire
     }
 
     public static List<Course> getCourses() {
         List<Course> courses = new ArrayList<>();
-
         Course a1 = createA1Course();
 
         if (a1 != null) {

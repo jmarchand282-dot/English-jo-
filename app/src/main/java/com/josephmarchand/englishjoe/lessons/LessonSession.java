@@ -21,17 +21,11 @@ public class LessonSession {
     public LessonSession(String lessonId, List<Question> questions) {
         this.lessonId = lessonId == null ? "" : lessonId;
 
-        if (questions == null) {
-            this.questions = new ArrayList<>();
-        } else {
-            this.questions = new ArrayList<>(questions);
-        }
+        this.questions = questions == null
+                ? new ArrayList<>()
+                : new ArrayList<>(questions);
 
-        this.currentIndex = 0;
-        this.correctAnswers = 0;
-        this.wrongAnswers = 0;
-        this.earnedXp = 0;
-        this.finished = false;
+        reset();
     }
 
     public String getLessonId() {
@@ -50,7 +44,6 @@ public class LessonSession {
         if (currentIndex < 0 || currentIndex >= questions.size()) {
             return null;
         }
-
         return questions.get(currentIndex);
     }
 
@@ -79,11 +72,27 @@ public class LessonSession {
             );
         }
 
-        boolean correct = question.isCorrect(answer);
+        String[] options = question.getOptions();
+        int correctIndex = question.getCorrectAnswer();
+
+        String correctText = "";
+
+        if (options != null
+                && correctIndex >= 0
+                && correctIndex < options.length
+                && options[correctIndex] != null) {
+            correctText = options[correctIndex];
+        }
+
+        boolean correct = answer != null
+                && answer.trim().equalsIgnoreCase(correctText.trim());
+
+        int xp = 0;
 
         if (correct) {
             correctAnswers++;
-            earnedXp += AppConstants.DEFAULT_LESSON_XP;
+            xp = AppConstants.DEFAULT_LESSON_XP;
+            earnedXp += xp;
         } else {
             wrongAnswers++;
         }
@@ -91,9 +100,9 @@ public class LessonSession {
         return new AnswerResult(
                 correct,
                 answer,
-                question.getCorrectAnswer(),
+                correctText,
                 question.getExplanation(),
-                correct ? AppConstants.DEFAULT_LESSON_XP : 0
+                xp
         );
     }
 
@@ -119,7 +128,7 @@ public class LessonSession {
         }
 
         int answered = correctAnswers + wrongAnswers;
-        return Math.min(100, (answered * 100) / questions.size());
+        return Math.min(100, answered * 100 / questions.size());
     }
 
     public int getScorePercent() {
@@ -127,7 +136,7 @@ public class LessonSession {
             return 0;
         }
 
-        return (correctAnswers * 100) / questions.size();
+        return correctAnswers * 100 / questions.size();
     }
 
     public boolean isPassed() {
@@ -149,4 +158,4 @@ public class LessonSession {
         earnedXp = 0;
         finished = false;
     }
-          }
+}

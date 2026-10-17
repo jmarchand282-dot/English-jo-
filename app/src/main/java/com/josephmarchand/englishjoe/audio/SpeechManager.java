@@ -1,3 +1,4 @@
+
 package com.josephmarchand.englishjoe.audio;
 
 import android.content.Context;
@@ -7,30 +8,36 @@ import java.util.Locale;
 
 public class SpeechManager {
 
-    private final TextToSpeech textToSpeech;
+    private TextToSpeech textToSpeech;
     private boolean ready = false;
 
     public SpeechManager(Context context) {
-
         textToSpeech = new TextToSpeech(
                 context.getApplicationContext(),
                 status -> {
-                    if (status == TextToSpeech.SUCCESS) {
-                        int result = textToSpeech.setLanguage(Locale.US);
+                    TextToSpeech tts = textToSpeech;
+
+                    if (status == TextToSpeech.SUCCESS && tts != null) {
+                        int result = tts.setLanguage(Locale.US);
 
                         ready = result != TextToSpeech.LANG_MISSING_DATA
                                 && result != TextToSpeech.LANG_NOT_SUPPORTED;
+                    } else {
+                        ready = false;
                     }
                 }
         );
     }
 
     public void speak(String text) {
-        if (!ready || text == null || text.trim().isEmpty()) {
+        TextToSpeech tts = textToSpeech;
+
+        if (!ready || tts == null || text == null
+                || text.trim().isEmpty()) {
             return;
         }
 
-        textToSpeech.speak(
+        tts.speak(
                 text,
                 TextToSpeech.QUEUE_FLUSH,
                 null,
@@ -43,15 +50,21 @@ public class SpeechManager {
     }
 
     public void stop() {
-        if (textToSpeech != null) {
-            textToSpeech.stop();
+        TextToSpeech tts = textToSpeech;
+
+        if (tts != null) {
+            tts.stop();
         }
     }
 
     public void shutdown() {
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
+        TextToSpeech tts = textToSpeech;
+
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+            textToSpeech = null;
+            ready = false;
         }
     }
 }

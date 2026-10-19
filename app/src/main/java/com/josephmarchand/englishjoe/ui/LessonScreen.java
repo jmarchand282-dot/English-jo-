@@ -31,6 +31,10 @@ public class LessonScreen extends ScrollView {
     public LessonScreen(Context c,Lesson lesson){super(c);this.lesson=lesson;buildQuestions();setFillViewport(true);setBackgroundColor(Color.rgb(246,247,252));buildUi(c);showQuestion();}
     private void buildQuestions(){
         int id=lesson.getId();
+        if (id >= 31 && id <= 60) {
+            com.josephmarchand.englishjoe.courses.LessonQuizExtension.addQuestions(id, questions);
+            return;
+        }
         if(id==1){add("How do you say « Bonjour » in English?",new String[]{"Goodbye","Hello","Please","Sorry"},1,"« Bonjour » se traduit par “Hello”.");add("How do you greet someone in the morning?",new String[]{"Good morning","Good night","See you","Thanks"},0,"Le matin, on dit “Good morning”.");add("What does “Thank you” mean?",new String[]{"Pardon","Au revoir","Merci","Bonjour"},2,"“Thank you” signifie « merci ».");}
         else if(id==2){add("Complete: My name ___ Ana.",new String[]{"are","am","is","be"},2,"Avec “my name”, on utilise “is”.");add("Complete: Nice to ___ you.",new String[]{"meet","name","am","good"},0,"L’expression correcte est “Nice to meet you”.");add("Choose a way to introduce yourself.",new String[]{"How old?","My name is Ana.","Good night you.","I fine thanks."},1,"“My name is…” permet de donner son nom.");}
         else if(id==3){add("How do you write le nombre 5 in English?",new String[]{"Four","Five","Fifteen","Fine"},1,"5 s’écrit “five”.");add("What number is “twelve”?",new String[]{"20","2","12","22"},2,"“Twelve” signifie douze (12).");add("What comes after nineteen?",new String[]{"Ninety","Eighteen","Thirty","Twenty"},3,"Après nineteen (19), vient twenty (20).");}

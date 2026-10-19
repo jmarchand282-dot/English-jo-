@@ -58,6 +58,12 @@ public class A1Course {
                 15
         ));
 
+                lessons.add(new Lesson(31, "Personal information", "Demander et donner son adresse, son âge et sa nationalité.", "A1", "Conversation", 10));
+        lessons.add(new Lesson(32, "Family and friends", "Nommer les membres de la famille et décrire les relations.", "A1", "Vocabulary", 10));
+        lessons.add(new Lesson(33, "Daily routines", "Décrire une journée avec les verbes fréquents.", "A1", "Grammar", 10));
+        lessons.add(new Lesson(34, "There is / There are", "Décrire ce qui se trouve dans un lieu.", "A1", "Grammar", 10));
+        lessons.add(new Lesson(35, "Can / Can't", "Parler de ses capacités et demander la permission.", "A1", "Grammar", 10));
+
         return lessons;
     }
 

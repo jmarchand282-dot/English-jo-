@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.josephmarchand.englishjoe.data.LessonProgress;
+import com.josephmarchand.englishjoe.courses.LessonContentBank;
 import com.josephmarchand.englishjoe.models.Lesson;
 import com.josephmarchand.englishjoe.models.Question;
 import java.util.ArrayList;
@@ -49,6 +50,10 @@ public class LessonScreen extends ScrollView {
         TextView badge=text("JOENGLISH  •  NIVEAU "+lesson.getLevel(),11,Color.rgb(224,222,255),true);header.addView(badge);
         TextView title=text(lesson.getTitle(),25,Color.WHITE,true);LinearLayout.LayoutParams tp=lp(-1,-2);tp.topMargin=dp(7);header.addView(title,tp);
         TextView subtitle=text("Apprends, réponds et progresse à ton rythme.",13,Color.rgb(240,239,255),false);LinearLayout.LayoutParams subp=lp(-1,-2);subp.topMargin=dp(5);header.addView(subtitle,subp);
+        LinearLayout lessonCard=new LinearLayout(c);lessonCard.setOrientation(LinearLayout.VERTICAL);lessonCard.setPadding(dp(17),dp(17),dp(17),dp(17));lessonCard.setBackground(round(Color.WHITE,18));LinearLayout.LayoutParams lessonCardP=lp(-1,-2);lessonCardP.topMargin=dp(16);content.addView(lessonCard,lessonCardP);
+        TextView lessonHeading=text("COURS EXPLIQUÉ",12,purple,true);lessonCard.addView(lessonHeading);
+        TextView lessonBody=text(LessonContentBank.get(lesson.getId()),15,Color.rgb(42,47,67),false);lessonBody.setLineSpacing(dp(4),1.0f);LinearLayout.LayoutParams lessonBodyP=lp(-1,-2);lessonBodyP.topMargin=dp(10);lessonCard.addView(lessonBody,lessonBodyP);
+        TextView practiceTip=text("Conseil : lis les exemples à voix haute, puis passe au quiz.",13,Color.rgb(22,130,70),true);LinearLayout.LayoutParams tipP=lp(-1,-2);tipP.topMargin=dp(12);lessonCard.addView(practiceTip,tipP);
         progressLabel=text("",12,Color.rgb(95,100,122),true);LinearLayout.LayoutParams plp=lp(-1,-2);plp.topMargin=dp(20);content.addView(progressLabel,plp);
         android.widget.ProgressBar bar=new android.widget.ProgressBar(c,null,android.R.attr.progressBarStyleHorizontal);bar.setMax(questions.size());bar.setProgress(1);bar.setProgressTintList(android.content.res.ColorStateList.valueOf(purple));bar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(Color.rgb(225,226,238)));LinearLayout.LayoutParams barp=lp(-1,dp(7));barp.topMargin=dp(8);content.addView(bar,barp);
         counter=text("",12,purple,true);LinearLayout.LayoutParams cp=lp(-1,-2);cp.topMargin=dp(18);content.addView(counter,cp);

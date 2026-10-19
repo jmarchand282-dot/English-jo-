@@ -53,7 +53,7 @@ public class CourseScreen extends ScrollView {
         banner.removeAllViews();banner.setBackground(round(levelColor(),20));
         banner.addView(text("NIVEAU "+selectedLevel+"  •  "+levelName(),12,Color.rgb(240,239,255),true));
         TextView bt=text("Parcours "+selectedLevel,21,Color.WHITE,true);LinearLayout.LayoutParams btp=lp(-1,-2);btp.topMargin=dp(7);banner.addView(bt,btp);
-        TextView bd=text("5 leçons enrichies disponibles dans ce parcours. Étudie le cours avant de répondre au quiz.",14,Color.WHITE,false);LinearLayout.LayoutParams bdp=lp(-1,-2);bdp.topMargin=dp(5);banner.addView(bd,bdp);
+        TextView bd=text(getLessons().size()+" leçons disponibles dans ce parcours. Étudie le cours avant de répondre au quiz.",14,Color.WHITE,false);LinearLayout.LayoutParams bdp=lp(-1,-2);bdp.topMargin=dp(5);banner.addView(bd,bdp);
         List<Lesson> list=getLessons();lessons.removeAllViews();String[] icons={"📘","🗣️","✍️","🎯","🌍"};
         for(int i=0;i<list.size();i++){Lesson lesson=list.get(i);boolean done=LessonProgress.isCompleted(context,String.valueOf(lesson.getId()));
             LinearLayout card=new LinearLayout(context);card.setOrientation(LinearLayout.HORIZONTAL);card.setGravity(Gravity.CENTER_VERTICAL);card.setPadding(dp(14),dp(14),dp(12),dp(14));card.setBackground(round(Color.WHITE,17));card.setElevation(dp(1));

@@ -71,6 +71,6 @@ public final class LessonContentBank {
     private LessonContentBank() {}
     public static String get(int lessonId) {
         String text = CONTENT.get(lessonId);
-        return text == null ? "OBJECTIF\\nÉtudie les exemples de cette leçon, relève les structures utiles et crée deux phrases personnelles.\\n\\nMÉTHODE\\nLis l'explication, répète les exemples à voix haute, puis réponds au quiz et relis chaque correction." : text;
+        return text == null ? "OBJECTIF\nÉtudie les exemples de cette leçon, relève les structures utiles et crée deux phrases personnelles.\n\nMÉTHODE\nLis l'explication, répète les exemples à voix haute, puis réponds au quiz et relis chaque correction." : text;
     }
 }

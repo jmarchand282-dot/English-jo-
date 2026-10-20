@@ -45,18 +45,15 @@ public final class LessonQuizExtension {
 
     private static void pair(List<Question> out, String q1, String a, String b, String c, String d, int correct1, String why1) {
         out.add(new Question(q1, new String[]{a,b,c,d}, correct1, why1));
-        String q2;
-        String[] opts;
-        int correct2;
-        String why2;
-        switch (out.size()) {
-            default:
-                q2 = "Which statement best matches the lesson objective?";
-                opts = new String[]{ "Use the target structure accurately", "Ignore the context", "Translate every word literally", "Avoid giving reasons" };
-                correct2 = 0;
-                why2 = "La bonne réponse applique la structure et le contexte étudiés dans cette leçon.";
-                break;
-        }
+        String q2 = "Which explanation best justifies the answer to: " + q1;
+        String[] opts = new String[]{
+                why1,
+                "The answer is chosen without considering grammar or context.",
+                "The sentence must be translated word for word.",
+                "The rule is different in every sentence."
+        };
+        int correct2 = 0;
+        String why2 = "Cette correction reprend la règle ou le sens précis évalué dans la première question.";
         out.add(new Question(q2, opts, correct2, why2));
     }
 }

@@ -14,6 +14,7 @@ jobs:
   build:
     name: Compile Android app
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Download project
